@@ -63,10 +63,11 @@
     e.preventDefault();
 
     const x = e.pageX;
-    const walk = (x - startX) * 2; // speed multiplier
-    slider.scrollLeft = scrollLeft - walk;
+    const walk = Math.abs(x - startX); // 👈 CRITICAL FIX
+    slider.scrollLeft = scrollLeft + walk;
   });
 </script>
+
 
 
   </body>
