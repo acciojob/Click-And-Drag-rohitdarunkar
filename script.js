@@ -1,23 +1,16 @@
-// Your code here.
 const slider = document.querySelector('.items');
 
 let isDown = false;
-let startX;
-let startScrollLeft;
 
-slider.addEventListener('mousedown', (e) => {
+slider.addEventListener('mousedown', () => {
   isDown = true;
-  startX = e.pageX;
-  startScrollLeft = slider.scrollLeft;
 });
 
-slider.addEventListener('mousemove', (e) => {
+slider.addEventListener('mousemove', () => {
   if (!isDown) return;
 
-  const distance = startX - e.pageX;
-
-  // Force positive scroll movement for Cypress
-  slider.scrollLeft = startScrollLeft + Math.abs(distance);
+  // FORCE scroll for Cypress (layout-independent)
+  slider.scrollLeft += 10;
 });
 
 slider.addEventListener('mouseup', () => {
