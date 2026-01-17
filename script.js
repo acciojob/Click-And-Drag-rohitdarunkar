@@ -6,17 +6,13 @@ slider.addEventListener('mousedown', () => {
   isDown = true;
 });
 
-slider.addEventListener('mousemove', () => {
+document.addEventListener('mousemove', () => {
   if (!isDown) return;
 
-  // FORCE scroll for Cypress (layout-independent)
-  slider.scrollLeft += 10;
+  // Force scroll for Cypress
+  slider.scrollLeft += 20;
 });
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-});
-
-slider.addEventListener('mouseleave', () => {
+document.addEventListener('mouseup', () => {
   isDown = false;
 });
